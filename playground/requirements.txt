@@ -1,0 +1,14 @@
+# Phase 1 dependencies. Intentionally minimal.
+# We are not adding databases, caches, or queues yet.
+# Add complexity only when the learning goal requires it.
+
+fastapi==0.111.0
+strawberry-graphql[fastapi]==0.234.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4  # Pin required - Strawberry 0.234.0 has a conflict with pydantic >2.7.x
+
+# For later phases (not used in Phase 1)
+# sqlalchemy==2.0.30
+# asyncpg==0.29.0
+# redis==5.0.4
+# celery==5.4.0
