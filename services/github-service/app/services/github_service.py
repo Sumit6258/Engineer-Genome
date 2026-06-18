@@ -22,6 +22,7 @@ Why not just call the GitHub client directly from resolvers?
 
 from app.external.github_client import GithubClient
 from app.db.repositories import repository_repo
+from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
@@ -30,7 +31,7 @@ class GithubService:
         self.github_client = github_client
         self.db_session = db_session
 
-    async def get_profile(self, username: str) -> dict | None:
+    async def get_profile(self, username: str) -> Optional[dict]:
         """
         Fetch a developer's GitHub profile.
         Returns the raw GitHub API dict, or None if user not found.

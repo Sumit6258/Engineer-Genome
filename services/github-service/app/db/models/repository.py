@@ -14,6 +14,7 @@ are very common. An index makes that lookup O(log n) instead of O(n).
 """
 
 from datetime import datetime
+from typing import Optional
 from sqlalchemy import String, Integer, Boolean, DateTime, Index
 from sqlalchemy.orm import Mapped, mapped_column
 from app.db.database import Base
@@ -25,9 +26,9 @@ class Repository(Base):
     id: Mapped[str] = mapped_column(String, primary_key=True)
     name: Mapped[str] = mapped_column(String, nullable=False)
     full_name: Mapped[str] = mapped_column(String, nullable=False)
-    description: Mapped[str | None] = mapped_column(String, nullable=True)
+    description: Mapped[Optional[str]] = mapped_column(String, nullable=True)
     stars: Mapped[int] = mapped_column(Integer, default=0)
-    primary_language: Mapped[str | None] = mapped_column(String, nullable=True)
+    primary_language: Mapped[Optional[str]] = mapped_column(String, nullable=True)
     is_fork: Mapped[bool] = mapped_column(Boolean, default=False)
     owner_username: Mapped[str] = mapped_column(String, nullable=False)
     html_url: Mapped[str] = mapped_column(String, nullable=False)

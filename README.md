@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://pypi-camo.freetls.fastly.net/ef5bddae9a8a975d7be7a05765bc6f2665ac7a1a/68747470733a2f2f6769746875622e636f6d2f737472617762657272792d6772617068716c2f737472617762657272792f7261772f6d61696e2f2e6769746875622f6c6f676f2e706e67" alt="Strawberry GraphQL" width="126">
+</p>
+
 # EngineerGenome
 
 **GraphQL Federation Based Developer Intelligence Platform**
