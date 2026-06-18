@@ -1,0 +1,26 @@
+version: "3.9"
+
+# This file starts PostgreSQL locally for development.
+# Run: docker-compose up -d
+# Stop: docker-compose down
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: github-service-db
+    environment:
+      POSTGRES_DB: github_service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"      # your machine:container
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # data persists when container restarts
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:         # named volume: data survives docker-compose down
