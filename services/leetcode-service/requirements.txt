@@ -1,0 +1,11 @@
+fastapi==0.111.0
+strawberry-graphql[fastapi]==0.234.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4
+pydantic-settings==2.3.4
+httpx==0.27.0
+
+# No sqlalchemy or asyncpg here.
+# Phase 3 teaches enums, pagination, and GraphQL-to-GraphQL calls.
+# The database pattern was already covered in Phase 2.
+# Adding it again would repeat learning without adding new concepts.

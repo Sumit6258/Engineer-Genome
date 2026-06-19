@@ -66,9 +66,9 @@ The frontend talks to exactly one endpoint. It never knows which service owns wh
 
 | Phase | Topic | Status |
 |-------|-------|--------|
-| 1 | GraphQL Fundamentals (FastAPI + Strawberry) | In Progress |
-| 2 | GitHub Microservice | Planned |
-| 3 | LeetCode Microservice | Planned |
+| 1 | GraphQL Fundamentals (FastAPI + Strawberry) | Done |
+| 2 | GitHub Microservice | Done |
+| 3 | LeetCode Microservice | Done |
 | 4 | Resume Intelligence Service | Planned |
 | 5 | AI Analysis Service | Planned |
 | 6 | GraphQL Federation + Apollo Gateway | Planned |
