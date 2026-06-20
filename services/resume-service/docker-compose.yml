@@ -1,0 +1,41 @@
+version: "3.9"
+
+# Phase 4 needs two backing services:
+#   postgres - stores job records and extracted resume data
+#   redis    - Celery uses it as the message broker (task queue) and result backend
+#
+# PostgreSQL runs on port 5434 to avoid conflict with:
+#   local postgres  → 5432
+#   github-service  → 5433
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: resume-service-db
+    environment:
+      POSTGRES_DB: resume_service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
+    volumes:
+      - resume_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: resume-service-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  resume_postgres_data:

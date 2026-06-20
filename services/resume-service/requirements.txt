@@ -1,0 +1,23 @@
+fastapi==0.111.0
+strawberry-graphql[fastapi]==0.234.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4
+pydantic-settings==2.3.4
+
+# Database - two drivers, one for each use case:
+sqlalchemy==2.0.30
+asyncpg==0.29.0        # async driver  → used by FastAPI (uvicorn process)
+psycopg2-binary==2.9.9 # sync driver   → used by Celery (worker process)
+                       # Why two drivers? Celery tasks are synchronous by default.
+                       # asyncpg requires an event loop. Celery workers don't have one.
+                       # Sync SQLAlchemy + psycopg2 is the clean solution.
+
+# Background jobs
+celery==5.4.0
+redis==5.0.4
+
+# PDF parsing
+pypdf==4.2.0
+
+# File upload support - REQUIRED for GraphQL Upload scalar to work in FastAPI
+python-multipart==0.0.9
